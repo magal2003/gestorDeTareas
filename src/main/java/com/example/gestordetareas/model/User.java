@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 @Entity
 @Table(name = "usuarios")
 public class User {
@@ -19,14 +22,21 @@ public class User {
 
     private String rol;
 
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
+    /*@Column(name = "created_at")
+    private LocalDateTime createdAt;*/
 
+    @CreationTimestamp
+    @Column(name="created_at",nullable = false,updatable = false)
+    private LocalDateTime createdAt;
+    
+    @UpdateTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Task> tasks;
+
+    //Getters y setters 
 
     public Long getIdUsuario() { return idUsuario; }
     public void setIdUsuario(Long idUsuario) { this.idUsuario = idUsuario; }
