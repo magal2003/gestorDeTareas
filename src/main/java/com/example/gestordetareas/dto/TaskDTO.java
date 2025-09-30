@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class taskDTO {
+public class TaskDTO {
     private Long id;
     private String titulo;
     private String description;
