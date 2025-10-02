@@ -35,6 +35,6 @@ public class Task {
 
     @ManyToOne
     @JoinColumn(name = "id_usuario")
-    @JsonIgnore // <- déjalo así por ahora; luego hacemos un DTO si quieres incluir datos del usuario
+    @JsonIgnore
     private User user;
 }
