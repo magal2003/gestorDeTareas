@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/task")
-public class TaskController {
+public class PostTaskController {
 
     @Autowired
     private TaskRepository taskRepo;
